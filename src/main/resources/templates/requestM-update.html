@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Edit RequestM</title>
+    <style>
+        textarea{
+            margin: auto;
+            display: flex;
+            position: absolute;
+            background-color: azure;
+            resize: none;
+        }
+        .one{
+            width: 300px;
+            height: 400px;
+            top: 100px;
+            left: 360px;
+        }
+        .two{
+            width: 300px;
+            height: 400px;
+            top: 100px;
+            left: 670px;
+        }
+
+
+                                                                    /*Label*/
+        p{
+            position: absolute;
+        }
+
+        .lableOne{top: 60px;
+            left: 500px;
+        }
+
+        .lableTwo{top: 60px;
+            left: 700px;
+        }
+
+        .lableThree{top: 60px;
+            left: 20px;
+        }
+
+        .name{
+            top: 130px;
+            left: 20px;
+        }
+
+        .address{
+            top: 200px;
+            left: 20px;
+        }
+
+        .phoneL{
+            top: 275px;
+            left: 20px;
+        }
+
+        .emailL{
+            top: 350px;
+            left: 20px;
+        }
+
+                                                                    /*Input Field*/
+        input{
+
+            position: absolute;
+        }
+        .updateButton
+        {
+            top: 510px;
+            left: 850px;
+        }
+
+        .three{top: 100px;
+            left: 20px;
+            width: 325px;
+        }
+
+        .four{top: 170px;
+            left: 20px;
+            width: 325px;
+        }
+
+        .five {
+            margin: auto;
+            top: 240px;
+            left: 20px;
+            width: 325px;
+            text-align: left;
+        }
+        .phone{
+            margin: auto;
+            top: 320px;
+            left: 20px;
+            width: 325px;
+            text-align: left;
+        }
+        .email{
+            margin: auto;
+            top: 400px;
+            left: 20px;
+            width: 325px;
+            text-align: left;
+        }
+        .cancelButton {
+            top: 510px;
+            left: 700px;
+        }
+
+        button{
+            position: absolute;
+        }
+
+        body{
+            background-color: #f5f5dc;
+        }
+
+
+
+
+
+    </style>
+</head>
+
+
+<body>
+
+<form action="#" th:action="@{/request-update}" th:object="${requestM}" method="post">
+
+    <textarea  class="one"    type="text" th:field="*{id}" id="id"></textarea>
+
+    <p class="lableOne">Запрос</p>
+    <textarea style="font-family: Arial; font-size: 15px;color: black"  class="one"    type="text" th:field="*{request}" id="request"></textarea>
+
+    <p class="lableTwo">Ответ</p>
+    <textarea style="font-family: Arial; font-size: 15px;color: black" class="two"  type="text" th:field="*{response}" id="response"></textarea>
+
+    <p class="lableThree">Лицевой счёт</p>
+    <input style="animation: alternate; font-size: 15px; color: black" class="three"    type="text" th:field="*{caid}" id="caid">
+
+    <input class="updateButton" type="submit" value="Сохранить">
+
+</form>
+
+<!--    <p class="name" >ФИО</p>-->
+<!--    <input class="four" style="animation: alternate; font-size: 15px; color: black"   type="text"  th:value="${fio}"/>-->
+
+<!--    <p class="address" >Адрес</p>-->
+<!--    <input class="five" style="animation: alternate; font-size: 15px; color: black"   type="text"  th:value="${usrAdr}"/>-->
+
+<!--    <p class="phoneL">Номер телефона</p>-->
+<!--    <input style="animation: alternate; font-size: 15px; color: black" class="phone"    type="text" th:value="${userData.phone}" >-->
+
+<!--    <p class="emailL">Email</p>-->
+<!--    <input style="animation: alternate; font-size: 15px; color: black" class="email"    type="text" th:value="${userData.email}" >-->
+
+
+
+<form action="#" th:action="@{/request-update-cancel}" th:object="${requestM}" method="post">
+    <input class="cancelButton" type="submit" value="Отменить">
+</form>
+
+</body>
+</html>

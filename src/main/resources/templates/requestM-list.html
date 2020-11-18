@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Обработка вопросов</title>
+    <style>
+        table.tableD{
+            margin: auto;
+            display: table;
+            border: 2px solid;
+            border-collapse: collapse;
+
+        }
+        table.tableD td{
+            border: 2px solid;
+        }
+        table.tableD th{
+            border: 3px solid;
+        }
+
+    </style>
+</head>
+<body>
+<div th:switch="${requests}">
+    <h2 th:case="null">No requests found!</h2>
+    <div th:case="*">
+        <h2 align="center">Обработка вопросов</h2>
+        <table   class ="tableD"  >
+            <thead>
+            <tr bgcolor="#d3d3d3">
+                <th>Дата запроса</th>
+                <th>Лицевой счёт</th>
+                <th>Запрос</th>
+                <th>Ответ</th>
+                <th>Дата ответа</th>
+                <th ></th>
+
+
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="requestM : ${requests}">
+                <td th:text="${requestM.dataReq}"></td>
+                <td th:text="${requestM.caid}"></td>
+                <td th:text="${requestM.request}"></td>
+                <td th:text="${requestM.response}"></td>
+                <td th:text="${requestM.dataRes}"></td>
+                <td bgcolor="#ffe4c4"><a th:href="@{request-update/{id}(id=${requestM.id})}">Ответить</a></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+
+</body>
+</html>
